@@ -5,11 +5,11 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
-    """Create a profile whenever a new user is registered."""
+    """Automatically create a profile when a new user is created."""
     if created:
-        Profile.objects.create(user=instance)
+        Profile.objects.create(owner=instance)
 
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
-    """Save the profile when the user is updated."""
+    """Save the profile when the user is saved."""
     instance.profile.save()
