@@ -21,6 +21,7 @@ class ProfileListCreateAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProfileDetailAPIView(APIView):
+    serializer_class = ProfileSerializer
     def get_object(self, pk):
         try:
             return Profile.objects.get(pk=pk)
