@@ -4,13 +4,14 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from .permissions import IsOwnerOrReadOnly 
 from .models import Profile
 from .serializers import ProfileSerializer
 
 class ProfileListCreateAPIView(APIView):
     def get(self, request):
         profiles = Profile.objects.all()
-        serializer = ProfileSerializer(profiles, many=True)
+        serializer = ProfileSerializer(profiles, many=True, context={'request': request}) 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -22,6 +23,8 @@ class ProfileListCreateAPIView(APIView):
 
 class ProfileDetailAPIView(APIView):
     serializer_class = ProfileSerializer
+    permission_classes = [IsOwnerOrReadOnly] 
+
     def get_object(self, pk):
         try:
             return Profile.objects.get(pk=pk)
@@ -32,14 +35,18 @@ class ProfileDetailAPIView(APIView):
         profile = self.get_object(pk)
         if profile is None:
             return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
-        serializer = ProfileSerializer(profile)
+        
+        # Pass request context here
+        serializer = ProfileSerializer(profile, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
         profile = self.get_object(pk)
         if profile is None:
             return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
-        serializer = ProfileSerializer(profile, data=request.data)
+        
+        # Pass request context here
+        serializer = ProfileSerializer(profile, data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -51,4 +58,3 @@ class ProfileDetailAPIView(APIView):
             return Response({"error": "Profile not found"}, status=status.HTTP_404_NOT_FOUND)
         profile.delete()
         return Response({"message": "Profile deleted"}, status=status.HTTP_204_NO_CONTENT)
-

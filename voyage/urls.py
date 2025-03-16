@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('profiles.urls')),  # Include your app's API URLs
     path('', home),  # Redirect `/` to a JSON response
+    path('api-auth/', include('rest_framework.urls')),
 ]
