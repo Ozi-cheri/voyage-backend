@@ -25,4 +25,8 @@ urlpatterns = [
     path('api/', include('profiles.urls')),  # Include your app's API URLs
     path('', home),  # Redirect `/` to a JSON response
     path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('profiles.urls')),
+    path('api/', include('posts.urls')),  
+    path("api/", include("comments.urls")),
+    path('api/', include('likes.urls')), 
 ]
