@@ -107,9 +107,13 @@ This project used the Code Institute PostgreSQL databse which can be obtained by
 
 ## Testing
 
+All testing can be found here: [TESTING.md](TESTING.md) 
 
 
 ## Deployment
+
+Please see separate [DEPLOYMENT.md](DEPLOYMENT.md) file for full deployment steps.
+
 
 
 
