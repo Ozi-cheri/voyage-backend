@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
 from django.http import JsonResponse
 from django.urls import path, include
 from django.contrib import admin
@@ -30,5 +32,6 @@ urlpatterns = [
     path('api/', include("comments.urls")),
     path('api/', include('likes.urls')), 
     path('api/', include('followers.urls')),
+    path("api/", include("reviews.urls")), 
     
 ]
