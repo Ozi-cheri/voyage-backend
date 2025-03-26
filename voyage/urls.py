@@ -25,6 +25,10 @@ def home(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('profiles.urls')),  # Include your app's API URLs
+    path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    path(
+        'dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
+    ),
     path('', home),  # Redirect `/` to a JSON response
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('profiles.urls')),
