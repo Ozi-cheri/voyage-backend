@@ -15,21 +15,23 @@ Including another URLconf
 """
 
 
-from django.http import JsonResponse
+
 from django.urls import path, include
 from django.contrib import admin
+from .views import root_route
 
-def home(request):
-    return JsonResponse({"message": "Welcome to the Voyage API!"})
+
+
 
 urlpatterns = [
+   
+    path('', root_route),
     path('admin/', admin.site.urls),
     path('api/', include('profiles.urls')),  # Include your app's API URLs
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
     path(
         'dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
     ),
-    path('', home),  # Redirect `/` to a JSON response
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include('profiles.urls')),
     path('api/', include('posts.urls')),  

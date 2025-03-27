@@ -1,4 +1,4 @@
-from django.shortcuts import render
+
 from rest_framework import generics, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Comment
