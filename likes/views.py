@@ -5,7 +5,6 @@ from .serializers import LikeSerializer
 from profiles.permissions import IsOwnerOrReadOnly
 
 
-# Create your views here.
 class LikeListCreateView(generics.ListCreateAPIView):
     queryset = Like.objects.all()
     serializer_class = LikeSerializer

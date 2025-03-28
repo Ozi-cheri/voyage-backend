@@ -5,7 +5,7 @@ from .models import Comment
 from .serializers import CommentSerializer
 from  profiles.permissions import IsOwnerOrReadOnly 
 
-# Create your views here.
+
 
 class CommentListCreateView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
