@@ -112,11 +112,13 @@ All testing can be found here: [TESTING.md](TESTING.md)
 
 ## Deployment
 
-Please see separate [DEPLOYMENT.md](DEPLOYMENT.md) file for full deployment steps.
+For detailed deployment steps, see [Deployment.md](DEPLOYMENT.md).
 
 
 
 
 ## Credits
+
+- The Code Institute DRF API walkthrough was used to create the voyage Api.
 
 
