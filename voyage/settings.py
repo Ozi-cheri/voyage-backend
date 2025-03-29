@@ -69,7 +69,10 @@ SECRET_KEY = SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['voyage-backend-e8a4f1be604a.herokuapp.com']
+ALLOWED_HOSTS = ['voyage-backend-e8a4f1be604a.herokuapp.com', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://voyage-backend-e8a4f1be604a.herokuapp.com']
+
 
 
 
