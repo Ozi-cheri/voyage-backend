@@ -1,2 +1,2 @@
 release: python manage.py makemigrations && python manage.py migrate
- web: gunicorn voyage_api.wsgi
+web: gunicorn voyage.wsgi
