@@ -98,12 +98,6 @@ This project follows Agile principles to ensure iterative development, user feed
 * Code Institute PostgresSQL Database server was used to store data on profiles,  likes and followers.
 * Gunicorn is a Python WSGI HTTP server which was used to run the Django application on Heroku in production.
 
-## Database
-
-This project used the Code Institute PostgreSQL databse which can be obtained by  the following process below.
-
-* Sign in to the CI LMS with your email address.
-* An email will be sent to you with a new Postgres database.Note that this postgreSQL database are available only for CI students.
 
 ## Testing
 
