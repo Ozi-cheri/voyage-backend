@@ -67,7 +67,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = SECRET_KEY = os.getenv('SECRET_KEY')
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['voyage-backend-e8a4f1be604a.herokuapp.com', '127.0.0.1']
 
