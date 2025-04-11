@@ -11,8 +11,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/', default=' ../default_profile_eb3bey'
-
+        default='https://res.cloudinary.com/dmjs4rot0/image/upload/v1744296769/default_profile_eb3bey.jpg'
     )
 
     class Meta:
