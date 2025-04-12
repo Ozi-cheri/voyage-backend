@@ -10,16 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
-from pathlib import Path
 import os
+from pathlib import Path
 import dj_database_url
 
 if os.path.exists('env.py'):
     import env
+
+
 
 
 
@@ -84,8 +82,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'cloudinary_storage',
-    'django.contrib.staticfiles',
     'cloudinary',
+    'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
     'rest_framework.authtoken',
