@@ -20,26 +20,17 @@ from django.urls import path, include
 from django.contrib import admin
 from .views import root_route, logout_route
 
-
-
-
 urlpatterns = [
-   
     path('', root_route),
     path('admin/', admin.site.urls),
-    path('api/', include('profiles.urls')), 
-    path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('profiles/', include('profiles.urls')),
+    path('posts/', include('posts.urls')),
+    path('comments/', include("comments.urls")),
+    path('likes/', include('likes.urls')),
+    path('followers/', include('followers.urls')),
+    path('reviews/', include("reviews.urls")),
     path('dj-rest-auth/logout/', logout_route),
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
-    path(
-        'dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
-    ),
+    path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('profiles.urls')),
-    path('api/', include('posts.urls')),  
-    path('api/', include("comments.urls")),
-    path('api/', include('likes.urls')), 
-    path('api/', include('followers.urls')),
-    path("api/", include("reviews.urls")), 
-    
 ]
